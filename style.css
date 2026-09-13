@@ -1,0 +1,230 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #eef5ff;
+    color: #333;
+}
+
+
+/* =========================
+   ENCABEZADO
+   ========================= */
+
+header {
+    background-color: #0b3d91;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+header h1 {
+    color: white;
+    font-size: 42px;
+    margin: 0 0 20px;
+}
+
+header p {
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   LÍNEA DEL TIEMPO
+   ========================= */
+
+.timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 70px auto;
+    padding: 20px;
+}
+
+
+/* Línea vertical */
+
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    background-color: #0b3d91;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+
+/* =========================
+   EVENTOS
+   ========================= */
+
+.evento {
+    position: relative;
+    width: 50%;
+    padding: 20px 45px;
+    margin-bottom: 50px;
+}
+
+
+/* Eventos impares a la izquierda */
+
+.evento:nth-child(odd) {
+    left: 0;
+}
+
+
+/* Eventos pares a la derecha */
+
+.evento:nth-child(even) {
+    left: 50%;
+}
+
+
+/* =========================
+   CÍRCULOS
+   ========================= */
+
+.evento::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    border: 5px solid #0b3d91;
+    border-radius: 50%;
+    top: 40px;
+    z-index: 2;
+}
+
+.evento:nth-child(odd)::after {
+    right: -14px;
+}
+
+.evento:nth-child(even)::after {
+    left: -14px;
+}
+
+
+/* =========================
+   TARJETAS
+   ========================= */
+
+.contenido {
+    background-color: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s;
+}
+
+.contenido:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================
+   AÑO
+   ========================= */
+
+.año {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    background-color: #0b3d91;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   TÍTULO
+   ========================= */
+
+.contenido h2 {
+    color: #0b3d91;
+    font-size: 27px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+
+/* =========================
+   TEXTO
+   ========================= */
+
+.contenido p {
+    color: #444;
+    font-size: 17px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.contenido strong {
+    color: #0b3d91;
+}
+
+
+/* =========================
+   IMÁGENES
+   ========================= */
+
+.imagen-hito {
+    width: 100%;
+    max-width: 350px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+
+/* =========================
+   CELULARES
+   ========================= */
+
+@media screen and (max-width: 700px) {
+
+    .timeline::after {
+        left: 25px;
+    }
+
+    .evento,
+    .evento:nth-child(odd),
+    .evento:nth-child(even) {
+        width: 100%;
+        left: 0;
+        padding-left: 60px;
+        padding-right: 10px;
+    }
+
+    .evento::after,
+    .evento:nth-child(odd)::after,
+    .evento:nth-child(even)::after {
+        left: 11px;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    .contenido h2 {
+        font-size: 23px;
+    }
+}
